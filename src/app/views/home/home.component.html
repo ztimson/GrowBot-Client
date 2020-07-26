@@ -1,0 +1,20 @@
+<mat-toolbar *ngIf="!hide" [@collapseUp]="!hide" [@expandDown]="!hide">
+  <button mat-icon-button *ngIf="mobile" class="mr-2">
+    <mat-icon (click)="open = !open">menu</mat-icon>
+  </button>
+  <img src="assets/images/logo.png" class="mr-2" height="24px" width="auto">
+  <span>
+        <span style="font-weight: 500;">GrowBot</span>
+        <small class="text-muted ml-2">v{{version}}</small>
+    </span>
+</mat-toolbar>
+<mat-drawer-container class="fill-height" [hasBackdrop]="false">
+  <mat-drawer [mode]="mobile ? 'push' : 'side'" [opened]="open" [disableClose]="!mobile" [autoFocus]="false">
+    <menu class="m-0 p-0" [items]="menuItems"></menu>
+  </mat-drawer>
+  <mat-drawer-content (click)="open = (mobile && open) ? false : open">
+    <main class="h-100" [@routerTransition]="transition(o)">
+      <router-outlet #o="outlet"></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

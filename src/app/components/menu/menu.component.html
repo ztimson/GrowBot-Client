@@ -1,0 +1,12 @@
+<mat-nav-list class="p-0">
+  <ng-container *ngFor="let item of items; let i = $index">
+    <mat-divider *ngIf="i > 0"></mat-divider>
+    <a mat-list-item [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <span class="p-3 pl-0 mr-5">
+        <mat-icon *ngIf="item.icon" class="mr-4" style="vertical-align: sub">{{item.icon}}</mat-icon>
+        <span>{{item.text}}</span>
+      </span>
+    </a>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-nav-list>
