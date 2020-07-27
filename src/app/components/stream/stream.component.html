@@ -1,0 +1,16 @@
+<div class="h-100 w-100 position-relative">
+  <div class="top-controls text-white">
+    <button mat-icon-button matTooltip="Take Picture" (click)="cameraService.snap()"><mat-icon>camera_alt</mat-icon></button>
+    <button mat-icon-button *ngIf="fullscreen" matTooltip="Close" [mat-dialog-close]><mat-icon>fullscreen_exit</mat-icon></button>
+    <button mat-icon-button *ngIf="!fullscreen" matTooltip="Fullscreen" (click)="openFullscreen()"><mat-icon>fullscreen</mat-icon></button>
+  </div>
+  <img id="stream" [src]="stream | async" width="100%" height="100%" alt="stream">
+  <div class="bottom-controls text-white">
+    <button mat-icon-button *ngIf="pause" (click)="pause = !pause" matTooltip="Resume">
+      <mat-icon style="font-size: 2rem;">play_circle_outline</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="!pause" (click)="pause = !pause" matTooltip="Pause">
+      <mat-icon style="font-size: 2rem;">pause_circle_outline</mat-icon>
+    </button>
+  </div>
+</div>

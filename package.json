@@ -1,6 +1,6 @@
 {
   "name": "grow-bot",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,6 +23,7 @@
     "@angular/router": "~10.0.5",
     "bootstrap-scss": "^4.5.0",
     "rxjs": "~6.5.5",
+    "socket.io-client": "^2.3.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
   },

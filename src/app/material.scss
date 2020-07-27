@@ -24,3 +24,10 @@ $GrowBot-theme: mat-light-theme((
 .mat-toolbar-row, .mat-toolbar-single-row {
   height: 48px;
 }
+
+.p-0 {
+  mat-dialog-container {
+    padding: 0;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row pt-3">
+    <div class="col-12 col-lg-8">
+      <mat-card>
+        <mat-card-content>
+          <stream></stream>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-12 col-lg-4 mt-3 mt-lg-0">
+      <mat-card>
+        <mat-card-content>
+          <div>
+            <h2>Timelapse</h2>
+            <mat-divider></mat-divider>
+            <div>
+              <mat-slide-toggle class="mt-3" [(ngModel)]="config.timelapseEnabled" color="primary">Enable</mat-slide-toggle>
+              <mat-form-field class="w-100 mt-3" appearance="fill">
+                <mat-select [(ngModel)]="config.timelapseFrequency" [disabled]="!config.timelapseEnabled">
+                  <mat-option value="hourly">Hourly</mat-option>
+                  <mat-option value="daily">Daily</mat-option>
+                  <mat-option value="alternating">Alternating Days</mat-option>
+                  <mat-option value="weekly">Weekly</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="mt-3">
+            <h2>Images</h2>
+            <mat-divider></mat-divider>
+            <div>
+              <div *ngIf="cameraService.images.length == 0" class="pt-3 text-muted">No Images</div>
+              <mat-list>
+                <mat-list-item *ngFor="let image of cameraService.images" class="hover">
+                  <div class="w-100 d-flex align-items-center hover">
+                    <div class="flex-grow-1">
+                      <a target="_blank" [href]="environment.api + '/images/' + image">{{image}}</a>
+                    </div>
+                    <div>
+                      <button mat-icon-button><mat-icon>get_app</mat-icon></button>
+                      <button mat-icon-button class="text-danger" (click)="cameraService.del(image)"><mat-icon>delete</mat-icon></button>
+                    </div>
+                  </div>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

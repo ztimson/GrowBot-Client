@@ -5,6 +5,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {filter} from "rxjs/operators";
 import {collapseUp, expandDown, routerTransition} from "../../animations";
 import {MenuItem} from "../../models/menuItem";
+import {CameraService} from "../../services/camera.service";
 
 @Component({
   selector: 'app-root',
@@ -20,16 +21,16 @@ export class HomeComponent {
   version = version; // Version number from package.json
 
   menuItems: MenuItem[] = [
-    {text: 'Dashboard', icon: 'dashboard'},
+    {text: 'Dashboard', icon: 'dashboard', link: ''},
     {text: 'Climate', icon: 'spa'},
     {text: 'Light', icon: 'wb_incandescent'},
     {text: 'Water', icon: 'waves'},
-    {text: 'Camera', icon: 'videocam'},
+    {text: 'Camera', icon: 'videocam', link: '/camera'},
     {text: 'Schedule', icon: 'event'},
     {text: 'Settings', icon: 'settings'}
   ]
 
-  constructor(private router: Router, route: ActivatedRoute, breakpointObserver: BreakpointObserver) {
+  constructor(private router: Router, route: ActivatedRoute, breakpointObserver: BreakpointObserver, private camera: CameraService) {
     router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
       this.hide = route.root.firstChild != null ? !!route.root.firstChild.snapshot.data.hide : false;
       this.open = !this.hide && !this.mobile;

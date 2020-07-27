@@ -1,0 +1,22 @@
+.top-controls {
+  position: absolute;
+  top: 3vh;
+  right: 3vh;
+}
+
+.bottom-controls {
+  position: absolute;
+  bottom: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+::ng-deep.fill-it {
+  border-radius: 0;
+  max-width: 100% !important;
+
+  mat-dialog-container {
+    border-radius: 0;
+    padding: 0 !important;
+  }
+}
