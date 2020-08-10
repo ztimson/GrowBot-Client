@@ -22,12 +22,12 @@ export class HomeComponent {
 
   menuItems: MenuItem[] = [
     {text: 'Dashboard', icon: 'dashboard', link: ''},
-    {text: 'Climate', icon: 'spa'},
-    {text: 'Light', icon: 'wb_incandescent'},
-    {text: 'Water', icon: 'waves'},
+    {text: 'Climate', icon: 'spa', link: '/climate'},
+    {text: 'Light', icon: 'wb_incandescent', link: '/light'},
+    {text: 'Water', icon: 'waves', link: '/water'},
     {text: 'Camera', icon: 'videocam', link: '/camera'},
-    {text: 'Schedule', icon: 'event'},
-    {text: 'Settings', icon: 'settings'}
+    {text: 'Schedule', icon: 'event', link: '/schedule'},
+    {text: 'Settings', icon: 'settings', link: '/settings'}
   ]
 
   constructor(private router: Router, route: ActivatedRoute, breakpointObserver: BreakpointObserver, private camera: CameraService) {
