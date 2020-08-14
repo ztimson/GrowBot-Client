@@ -1,16 +1,17 @@
-<div class="h-100 w-100 position-relative">
+<div class="stream h-100 w-100 position-relative">
   <div class="top-controls text-white">
-    <button mat-icon-button matTooltip="Take Picture" (click)="cameraService.snap()"><mat-icon>camera_alt</mat-icon></button>
-    <button mat-icon-button *ngIf="fullscreen" matTooltip="Close" [mat-dialog-close]><mat-icon>fullscreen_exit</mat-icon></button>
-    <button mat-icon-button *ngIf="!fullscreen" matTooltip="Fullscreen" (click)="openFullscreen()"><mat-icon>fullscreen</mat-icon></button>
+    <button mat-icon-button matTooltip="Take Picture" (click)="cameraService.snap()"><mat-icon style=" text-shadow: 0 0 5px #000;">camera_alt</mat-icon></button>
+    <button mat-icon-button *ngIf="fullscreen" matTooltip="Close" [mat-dialog-close]><mat-icon style=" text-shadow: 0 0 5px #000;">fullscreen_exit</mat-icon></button>
+    <button mat-icon-button *ngIf="!fullscreen" matTooltip="Fullscreen" (click)="openFullscreen()"><mat-icon style=" text-shadow: 0 0 5px #000;">fullscreen</mat-icon></button>
   </div>
-  <img id="stream" [src]="stream | async" width="100%" height="100%" alt="stream">
+  <mat-progress-spinner *ngIf="loading" class="center" mode="indeterminate"></mat-progress-spinner>
+  <img id="stream" [src]="stream | async" width="100%" height="100%" alt="stream" [hidden]="loading">
   <div class="bottom-controls text-white">
     <button mat-icon-button *ngIf="pause" (click)="pause = !pause" matTooltip="Resume">
-      <mat-icon style="font-size: 2rem;">play_circle_outline</mat-icon>
+      <mat-icon style="font-size: 2rem; text-shadow: 0 0 5px #000;">play_circle_outline</mat-icon>
     </button>
     <button mat-icon-button *ngIf="!pause" (click)="pause = !pause" matTooltip="Pause">
-      <mat-icon style="font-size: 2rem;">pause_circle_outline</mat-icon>
+      <mat-icon style="font-size: 2rem; text-shadow: 0 0 5px #000;">pause_circle_outline</mat-icon>
     </button>
   </div>
 </div>

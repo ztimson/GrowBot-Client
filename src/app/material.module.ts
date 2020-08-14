@@ -14,6 +14,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 const modules = [
   MatButtonModule,
@@ -26,6 +27,7 @@ const modules = [
   MatInputModule,
   MatListModule,
   MatRadioModule,
+  MatProgressSpinnerModule,
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,

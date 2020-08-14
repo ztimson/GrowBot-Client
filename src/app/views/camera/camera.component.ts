@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {CameraService} from "../../services/camera.service";
 import {environment} from "../../../environments/environment";
 
@@ -6,7 +6,7 @@ import {environment} from "../../../environments/environment";
   selector: 'camera',
   templateUrl: `./camera.component.html`
 })
-export class CameraComponent implements OnDestroy, OnInit {
+export class CameraComponent {
   environment = environment;
   config;
 
@@ -14,16 +14,7 @@ export class CameraComponent implements OnDestroy, OnInit {
     let ignore = this.cameraService.list();
   }
 
-  ngOnInit() {
-    this.cameraService.start();
-  }
-
-  ngOnDestroy() {
-    this.cameraService.stop();
-  }
-
   async save() {
-    console.log('save!');
     await this.cameraService.save(this.cameraService.config);
     this.config = this.cameraService.config;
   }

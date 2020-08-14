@@ -1,22 +1,33 @@
-.top-controls {
-  position: absolute;
-  top: 1.5vh;
-  right: 1.5vh;
-}
+.stream {
+  min-height: 300px;
+  min-width: 300px;
 
-.bottom-controls {
-  position: absolute;
-  bottom: 1.5vh;
-  left: 50%;
-  transform: translateX(-50%);
-}
+  .center {
+    position: absolute;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+  }
 
-::ng-deep.fill-it {
-  border-radius: 0;
-  max-width: 100% !important;
+  .top-controls {
+    position: absolute;
+    top: 1.5vh;
+    right: 1.5vh;
+  }
 
-  mat-dialog-container {
+  .bottom-controls {
+    position: absolute;
+    bottom: 1.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  ::ng-deep.fill-it {
     border-radius: 0;
-    padding: 0 !important;
+    max-width: 100% !important;
+
+    mat-dialog-container {
+      border-radius: 0;
+      padding: 0 !important;
+    }
   }
 }
