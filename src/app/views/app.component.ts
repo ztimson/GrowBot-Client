@@ -6,6 +6,7 @@ import {filter} from "rxjs/operators";
 import {collapseUp, expandDown, routerTransition} from "../animations";
 import {MenuItem} from "../models/menuItem";
 import {CameraService} from "../services/camera.service";
+import {LocalStorage} from "../utils/webStorage";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ import {CameraService} from "../services/camera.service";
   animations: [collapseUp, expandDown, routerTransition]
 })
 export class AppComponent {
+  @LocalStorage({defaultValue: false}) darkMode; // Style points
+
   hide = false; // Hide nav
   mobile = true; // Mobile or desktop size
   noTransition = false; // Stop router transitions

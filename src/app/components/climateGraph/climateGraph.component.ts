@@ -62,33 +62,9 @@ export class ClimateGraphComponent {
         xMax: 3,
         yMin: 0,
         yMax: 100,
-        borderWidth: 2,
-        borderColor: 'rgba(255,255,0,0.15)',
+        borderWidth: 3,
+        borderColor: 'orange',
         backgroundColor: 'rgba(255,255,0,0.1)',
-      }, {
-        type: 'line',
-        mode: 'vertical',
-        scaleID: 'x-axis-0',
-        value: 1,
-        borderColor: 'orange',
-        borderWidth: 2,
-        label: {
-          enabled: true,
-          fontColor: 'orange',
-          content: 'Light ON'
-        }
-      }, {
-        type: 'line',
-        mode: 'vertical',
-        scaleID: 'x-axis-0',
-        value: 3,
-        borderColor: 'orange',
-        borderWidth: 2,
-        label: {
-          enabled: true,
-          fontColor: 'orange',
-          content: 'Light OFF'
-        }
       }, {
         type: 'box',
         drawTime: 'beforeDatasetsDraw',
@@ -98,34 +74,10 @@ export class ClimateGraphComponent {
         xMax: 5,
         yMin: 0,
         yMax: 100,
-        borderWidth: 2,
-        borderColor: 'rgba(0,0,255,0.15)',
+        borderWidth: 3,
+        borderColor: 'blue',
         backgroundColor: 'rgba(0,0,255,0.1)',
-      }, {
-        type: 'line',
-        mode: 'vertical',
-        scaleID: 'x-axis-0',
-        value: 2,
-        borderColor: 'blue',
-        borderWidth: 2,
-        label: {
-          enabled: true,
-          fontColor: 'white',
-          content: 'Fan ON'
-        }
-      }, {
-        type: 'line',
-        mode: 'vertical',
-        scaleID: 'x-axis-0',
-        value: 5,
-        borderColor: 'blue',
-        borderWidth: 2,
-        label: {
-          enabled: true,
-          fontColor: 'white',
-          content: 'Fan OFF'
-        }
-      }, ],
+      }],
     },
   };
 
