@@ -7,6 +7,17 @@
         <span>{{item.text}}</span>
       </span>
     </a>
+    <ng-container *ngIf="item.sub?.length">
+      <ng-container *ngFor="let subItem of item.sub">
+        <mat-divider></mat-divider>
+        <a mat-list-item class="pl-4" [routerLink]="subItem.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <span class="p-3 pl-0 mr-5">
+            <mat-icon *ngIf="subItem.icon" class="mr-4" style="vertical-align: sub">{{subItem.icon}}</mat-icon>
+            <span>{{subItem.text}}</span>
+          </span>
+        </a>
+      </ng-container>
+    </ng-container>
     <mat-divider></mat-divider>
   </ng-container>
 </mat-nav-list>

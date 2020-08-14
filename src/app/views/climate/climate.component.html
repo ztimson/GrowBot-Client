@@ -3,14 +3,7 @@
     <div class="d-none d-lg-block col-lg-4">
       <mat-card>
         <mat-card-content>
-          <div class="row">
-            <div class="col border-right">
-              <h1 class="mb-0">Temperature: <br class="d-lg-none">{{climateService.temp}} °C</h1>
-            </div>
-            <div class="ml-2 ml-lg-4 col">
-              <h1 class="mb-0">Humidity: <br class="d-lg-none">{{climateService.humidity | percent}}</h1>
-            </div>
-          </div>
+          <temperature></temperature>
         </mat-card-content>
       </mat-card>
     </div>
@@ -19,13 +12,11 @@
         <mat-card-content>
           <div class="d-flex">
             <div style="writing-mode: vertical-lr;">
-              <button mat-mini-fab [color]="climateService.lightConfig.on ? 'primary' : ''" (click)="climateService.toggleLight()">
-                <mat-icon>power_settings_new</mat-icon>
-              </button>
+              <light-toggle></light-toggle>
               <h1 class=" pt-3 d-inline">Light</h1>
             </div>
             <div class="flex-grow-1 ml-3 border-left p-3">
-              <auto-light [(config)]="climateService.lightConfig" (configChange)="saveLight()"></auto-light>
+              <light-auto></light-auto>
             </div>
           </div>
         </mat-card-content>
@@ -36,13 +27,11 @@
         <mat-card-content>
           <div class="d-flex">
             <div style="writing-mode: vertical-lr;">
-              <button mat-mini-fab [color]="climateService.fanConfig.on ? 'primary' : ''" (click)="climateService.toggleFan()">
-                <mat-icon>power_settings_new</mat-icon>
-              </button>
+              <fan-toggle></fan-toggle>
               <h1 class=" pt-3 d-inline">Fan</h1>
             </div>
             <div class="flex-grow-1 ml-3 border-left p-3">
-              <auto-fan [(config)]="climateService.fanConfig" (configChange)="saveFan()"></auto-fan>
+              <fan-auto></fan-auto>
             </div>
           </div>
         </mat-card-content>
@@ -51,14 +40,7 @@
     <div class="d-block d-lg-none col-12 mt-4">
       <mat-card>
         <mat-card-content>
-          <div class="row">
-            <div class="col border-right">
-              <h1 class="mb-0">Temperature: <br class="d-lg-none">{{climateService.temp}} °C</h1>
-            </div>
-            <div class="ml-2 ml-lg-4 col">
-              <h1 class="mb-0">Humidity: <br class="d-lg-none">{{climateService.humidity | percent}}</h1>
-            </div>
-          </div>
+          <temperature></temperature>
         </mat-card-content>
       </mat-card>
     </div>

@@ -1,0 +1,15 @@
+<mat-slide-toggle color="accent" [(ngModel)]="climateService.lightConfig.autoLight" (change)="save()">Automatic</mat-slide-toggle>
+<div class="mt-4 row">
+  <div class="col">
+    <mat-form-field class="w-100" appearance="fill" color="accent">
+      <mat-label>From</mat-label>
+      <input matInput type="time" [(ngModel)]="climateService.lightConfig.lightOn" (change)="save()" [disabled]="!climateService.lightConfig.autoLight">
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field class="w-100" appearance="fill" color="accent">
+      <mat-label>To</mat-label>
+      <input matInput type="time" [(ngModel)]="climateService.lightConfig.lightOff" (change)="save()" [disabled]="!climateService.lightConfig.autoLight">
+    </mat-form-field>
+  </div>
+</div>

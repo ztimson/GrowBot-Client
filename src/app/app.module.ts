@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
-import {HomeComponent} from './views/home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material.module";
 import {LogoComponent} from "./components/logo/logo.component";
@@ -14,25 +13,32 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatNativeDateModule} from "@angular/material/core";
 import {HttpClientModule} from "@angular/common/http";
 import {ClimateComponent} from "./views/climate/climate.component";
-import {AutoFanComponent} from "./components/autoFan/autoFan.component";
-import {AutoLightComponent} from "./components/autoLight/autoLight.component";
 import {ChartsModule} from "ng2-charts";
 import {ClimateGraphComponent} from "./components/climateGraph/climateGraph.component";
 import {DashboardComponent} from "./views/dashboard/dashboard.component";
+import {AppComponent} from "./views/app.component";
+import {TemperatureComponent} from "./components/temperature/temperature.component";
+import {FanAutoComponent} from "./components/fanAuto/fanAuto.component";
+import {LightAutoComponent} from "./components/lightAuto/lightAuto.component";
+import {FanToggleComponent} from "./components/fanToggle/fanToggle.component";
+import {LightToggleComponent} from "./components/lightToggle/lightToggle.component";
 
 @NgModule({
   declarations: [
-    AutoFanComponent,
-    AutoLightComponent,
+    AppComponent,
     CameraComponent,
     ClimateComponent,
     ClimateGraphComponent,
     DashboardComponent,
+    FanAutoComponent,
+    FanToggleComponent,
     FullscreenCameraComponent,
-    HomeComponent,
+    LightAutoComponent,
+    LightToggleComponent,
     LogoComponent,
     MenuComponent,
     StreamComponent,
+    TemperatureComponent,
     ClimateGraphComponent,
   ],
   imports: [
@@ -47,6 +53,6 @@ import {DashboardComponent} from "./views/dashboard/dashboard.component";
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [HomeComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

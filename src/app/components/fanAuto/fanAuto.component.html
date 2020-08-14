@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-12 col-xl-6">
+    <mat-slide-toggle color="accent" [(ngModel)]="climateService.fanConfig.autoFan" (change)="save()">Automatic</mat-slide-toggle>
+  </div>
+  <div class="col-12 col-xl-6 mt-4 mt-xl-0">
+    <mat-radio-group [disabled]="!climateService.fanConfig.autoFan" [(ngModel)]="climateService.fanConfig.fanMode" (change)="save()">
+      <mat-radio-button value="time" checked>Time</mat-radio-button>
+      <mat-radio-button class="ml-3" value="temp">Temp</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+<div *ngIf="climateService.fanConfig.fanMode == 'time'" class="mt-4 row">
+  <div class="col">
+    <mat-form-field class="w-100" appearance="fill" color="accent">
+      <mat-label>From</mat-label>
+      <input matInput type="time" [(ngModel)]="climateService.fanConfig.fanOn" (change)="save()" [disabled]="!climateService.fanConfig.autoFan">
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field class="w-100" appearance="fill" color="accent">
+      <mat-label>To</mat-label>
+      <input matInput type="time" [(ngModel)]="climateService.fanConfig.fanOff" (change)="save()" [disabled]="!climateService.fanConfig.autoFan">
+    </mat-form-field>
+  </div>
+</div>
+<div *ngIf="climateService.fanConfig.fanMode == 'temp'" class="mt-4 row">
+  <div class="col">
+    <mat-form-field class="w-100" appearance="fill" color="accent">
+      <mat-label>Temperature</mat-label>
+      <input matInput type="number" [(ngModel)]="climateService.fanConfig.fanTemp" (change)="save()" [disabled]="!climateService.fanConfig.autoFan">
+      <span matSuffix>°C</span>
+    </mat-form-field>
+  </div>
+  <div class="col">
+    <mat-form-field class="w-100" appearance="fill" color="accent">
+      <mat-label>Humidity</mat-label>
+      <input matInput type="number" [(ngModel)]="climateService.fanConfig.fanHumidity" (change)="save()" [disabled]="!climateService.fanConfig.autoFan">
+      <span matSuffix>%</span>
+    </mat-form-field>
+  </div>
+</div>
