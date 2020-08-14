@@ -21,9 +21,8 @@ export class HomeComponent {
   version = version; // Version number from package.json
 
   menuItems: MenuItem[] = [
-    {text: 'Dashboard', icon: 'dashboard', link: ''},
+    {text: 'Dashboard', icon: 'dashboard', link: '/'},
     {text: 'Climate', icon: 'spa', link: '/climate'},
-    {text: 'Light', icon: 'wb_incandescent', link: '/light'},
     {text: 'Water', icon: 'waves', link: '/water'},
     {text: 'Camera', icon: 'videocam', link: '/camera'},
     {text: 'Schedule', icon: 'event', link: '/schedule'},

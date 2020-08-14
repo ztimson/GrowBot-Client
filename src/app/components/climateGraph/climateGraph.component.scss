@@ -1,0 +1,79 @@
+.red {
+  ::ng-deep.mat-checkbox-label {
+    color: rgba(150,0,0,0.5) !important;
+  }
+
+  ::ng-deep.mat-checkbox-frame {
+    border-color: rgba(150,0,0,0.5);
+  }
+
+  &.mat-checkbox-checked {
+    ::ng-deep.mat-checkbox-background {
+      background-color: rgba(150,0,0,0.5) !important;
+    }
+  }
+
+  ::ng-deep.mat-ripple-element {
+    background: rgba(150,0,0,0.5) !important;
+  }
+}
+
+.green {
+  ::ng-deep.mat-checkbox-label {
+    color: rgba(0,150,0,0.5) !important;
+  }
+
+  ::ng-deep.mat-checkbox-frame {
+    border-color: rgba(0,150,0,0.5);
+  }
+
+  &.mat-checkbox-checked {
+    ::ng-deep.mat-checkbox-background {
+      background-color: rgba(0,150,0,0.5) !important;
+    }
+  }
+
+  ::ng-deep.mat-ripple-element {
+    background: rgba(0,150,0,0.5) !important;
+  }
+}
+
+.blue {
+  ::ng-deep.mat-checkbox-label {
+    color: rgba(0,0,150,0.5) !important;
+  }
+
+  ::ng-deep.mat-checkbox-frame {
+    border-color: rgba(0,0,150,0.5);
+  }
+
+  &.mat-checkbox-checked {
+    ::ng-deep.mat-checkbox-background {
+      background-color: rgba(0,0,150,0.5) !important;
+    }
+  }
+
+  ::ng-deep.mat-ripple-element {
+    background: rgba(0,0,150,0.5) !important;
+  }
+}
+
+.yellow {
+  ::ng-deep.mat-checkbox-label {
+    color: rgba(150,150,0,0.5) !important;
+  }
+
+  ::ng-deep.mat-checkbox-frame {
+    border-color: rgba(150,150,0,0.5);
+  }
+
+  &.mat-checkbox-checked {
+    ::ng-deep.mat-checkbox-background {
+      background-color: rgba(150,150,0,0.5) !important;
+    }
+  }
+
+  ::ng-deep.mat-ripple-element {
+    background: rgba(150,150,0,0.5) !important;
+  }
+}

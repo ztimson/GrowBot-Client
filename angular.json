@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "GrowBot"
+    }
+  },
+  "defaultProject": "GrowBot",
+  "cli": {
+    "analytics": false
+  }
 }

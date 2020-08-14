@@ -1,0 +1,31 @@
+<div class="w-100 h-100">
+  <div>
+    <div style="width: 250px">
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>Time Frame</mat-label>
+        <mat-select [(ngModel)]="timeFrame">
+          <mat-option value="12">12 hours</mat-option>
+          <mat-option value="24">24 hours</mat-option>
+          <mat-option value="72">3 Days</mat-option>
+          <mat-option value="168">7 Days</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-checkbox class="mr-5 red">Temperature</mat-checkbox>
+      <mat-checkbox class="mr-5 green">Humidity</mat-checkbox>
+      <mat-checkbox class="mr-5 yellow">Lights</mat-checkbox>
+      <mat-checkbox class="mr-5 blue">Fans</mat-checkbox>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <canvas baseChart class="mt-4"
+          [datasets]="data"
+          [labels]="labels"
+          [colors]="colors"
+          [legend]="false"
+          chartType="line"
+          [plugins]="plugins"
+          [options]="options">
+  </canvas>
+</div>

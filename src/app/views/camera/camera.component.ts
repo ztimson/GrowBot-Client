@@ -4,15 +4,11 @@ import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'camera',
-  templateUrl: `./camera.component.html`,
-  styleUrls: ['./camera.component.scss']
+  templateUrl: `./camera.component.html`
 })
 export class CameraComponent implements OnDestroy, OnInit {
   environment = environment;
-  config = {
-    timelapseEnabled: true,
-    timelapseFrequency: 'daily'
-  }
+  config;
 
   constructor(public cameraService: CameraService) {
     let ignore = this.cameraService.list();
@@ -24,5 +20,11 @@ export class CameraComponent implements OnDestroy, OnInit {
 
   ngOnDestroy() {
     this.cameraService.stop();
+  }
+
+  async save() {
+    console.log('save!');
+    await this.cameraService.save(this.cameraService.config);
+    this.config = this.cameraService.config;
   }
 }

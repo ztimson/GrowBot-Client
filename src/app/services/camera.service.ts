@@ -12,6 +12,10 @@ export class CameraService {
 
   images: string[] = [];
   stream: Subject<string>;
+  config = {
+    timelapseEnabled: false,
+    timelapseFrequency: '0 0 12 * * *'
+  };
 
   constructor(private http: HttpClient) {
     this.socket = SocketIO(environment.api)
@@ -19,19 +23,39 @@ export class CameraService {
   }
 
   async del(filename) {
-    console.log(`${environment.api}/timelapse/${filename}`);
-    this.images = <any>(await this.http.delete(`${environment.api}/timelapse/${filename}`).toPromise());
-    return this.images;
+    let resp = <any>(await this.http.delete(`${environment.api}/timelapse/${filename}`).toPromise());
+    this.images = resp.files;
+    this.config = {
+      timelapseEnabled: resp.timelapseEnabled,
+      timelapseFrequency: resp.timelapseFrequency
+    };
   }
 
   async list() {
-    this.images = <any>(await this.http.get(`${environment.api}/timelapse`).toPromise());
-    return this.images;
+    let resp = <any>(await this.http.get(`${environment.api}/timelapse`).toPromise());
+    this.images = resp.files;
+    this.config = {
+      timelapseEnabled: resp.timelapseEnabled,
+      timelapseFrequency: resp.timelapseFrequency
+    };
+  }
+
+  async save(config) {
+    let resp = <any>(await this.http.put(`${environment.api}/timelapse`, config).toPromise());
+    this.images = resp.files;
+    this.config = {
+      timelapseEnabled: resp.timelapseEnabled,
+      timelapseFrequency: resp.timelapseFrequency
+    };
   }
 
   async snap() {
-    this.images = <any>(await this.http.post(`${environment.api}/timelapse`, {}).toPromise());
-    return this.images;
+    let resp = <any>(await this.http.post(`${environment.api}/timelapse`, {}).toPromise());
+    this.images = resp.files;
+    this.config = {
+      timelapseEnabled: resp.timelapseEnabled,
+      timelapseFrequency: resp.timelapseFrequency
+    };
   }
 
   start() {

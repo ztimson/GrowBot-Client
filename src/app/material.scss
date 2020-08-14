@@ -3,8 +3,8 @@
 
 @include mat-core();
 
-$GrowBot-primary: mat-palette($mat-indigo);
-$GrowBot-accent: mat-palette($mat-pink, A200, A100, A400);
+$GrowBot-primary: mat-palette($mat-light-green, 700);
+$GrowBot-accent: mat-palette($mat-light-blue, 700);
 $GrowBot-warn: mat-palette($mat-red);
 
 $GrowBot-theme: mat-light-theme((
@@ -29,5 +29,17 @@ $GrowBot-theme: mat-light-theme((
   mat-dialog-container {
     padding: 0;
     border-radius: 0;
+  }
+}
+
+.mat-list-item {
+  &:hover {
+    background: #94ba73 !important;
+    color: #ffffff;
+  }
+
+  &:focus {
+    background: #689f38 !important;
+    color: #ffffff;
   }
 }
