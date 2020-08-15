@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, HostBinding} from '@angular/core';
 import {version} from '../../../package.json';
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {filter} from "rxjs/operators";
 import {collapseUp, expandDown, routerTransition} from "../animations";
 import {MenuItem} from "../models/menuItem";
-import {CameraService} from "../services/camera.service";
 import {LocalStorage} from "../utils/webStorage";
 
 @Component({
@@ -15,7 +14,14 @@ import {LocalStorage} from "../utils/webStorage";
   animations: [collapseUp, expandDown, routerTransition]
 })
 export class AppComponent {
-  @LocalStorage({defaultValue: false}) darkMode; // Style points
+  // Theme
+  private body = document.getElementsByTagName('body')[0];
+  @LocalStorage({defaultValue: false}) private _darkMode: boolean;
+  get darkMode(): boolean { return this._darkMode; }
+  set darkMode(val: boolean) {
+    this._darkMode = val;
+    this.body.className = val ? 'dark-theme' : 'light-theme';
+  }
 
   hide = false; // Hide nav
   mobile = true; // Mobile or desktop size
@@ -35,7 +41,8 @@ export class AppComponent {
     {text: 'Settings', icon: 'settings', link: '/settings'},
   ]
 
-  constructor(private router: Router, route: ActivatedRoute, breakpointObserver: BreakpointObserver, private camera: CameraService) {
+  constructor(private router: Router, route: ActivatedRoute, breakpointObserver: BreakpointObserver) {
+    this.darkMode = this._darkMode;
     router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
       this.hide = route.root.firstChild != null ? !!route.root.firstChild.snapshot.data.hide : false;
       this.open = !this.hide && !this.mobile;
