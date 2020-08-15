@@ -22,6 +22,11 @@ import {FanAutoComponent} from "./components/fanAuto/fanAuto.component";
 import {LightAutoComponent} from "./components/lightAuto/lightAuto.component";
 import {FanToggleComponent} from "./components/fanToggle/fanToggle.component";
 import {LightToggleComponent} from "./components/lightToggle/lightToggle.component";
+import {WaterComponent} from "./views/water/water.component";
+import {GrowOpsComponent} from "./views/growOps/growOps.component";
+import {ScheduleComponent} from "./views/schedule/schedule.component";
+import {NotesComponent} from "./views/notes/notes.component";
+import {SettingsComponent} from "./views/settings/settings.component";
 
 @NgModule({
   declarations: [
@@ -33,13 +38,17 @@ import {LightToggleComponent} from "./components/lightToggle/lightToggle.compone
     FanAutoComponent,
     FanToggleComponent,
     FullscreenCameraComponent,
+    GrowOpsComponent,
     LightAutoComponent,
     LightToggleComponent,
     LogoComponent,
     MenuComponent,
+    NotesComponent,
+    ScheduleComponent,
+    SettingsComponent,
     StreamComponent,
     TemperatureComponent,
-    ClimateGraphComponent,
+    WaterComponent
   ],
   imports: [
     AppRoutingModule,
